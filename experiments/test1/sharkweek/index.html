@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>SharkWeekTest</title>
+<!--	<script src="https://aframe.io/releases/latest/aframe.min.js"></script>
+-->
+ <script src="../../../dist/aframe.js"></script>
+
+  </head>
+  <body>
+
+  <a-scene fog="type: exponential; density: .1; color: #21c1cf; far: 30; near: 3">
+
+ <a-sky color="#1f1e1e"></a-sky>
+    
+    <a-assets>
+        <a-asset-item id="shark" src="shark.dae"></a-asset-item>
+      </a-assets>
+
+    <a-entity camera position="0 1.8 4" wasd-controls="acceleration: 200" look-controls></a-entity>
+ 
+
+<!-- lights and ground -->
+<a-entity light="type: point; color: #d0fff4; intensity: 1.7" position="3, 10, 5"></a-entity>
+
+<a-collada-model src="#shark" position="0 0 -2"> 
+<a-animation attribute="position"
+               from=".3 .2 0"
+               to="0 -.4 .3"
+               dur="1000"
+               repeat="indefinite"
+               direction="alternate">
+               </a-animation>
+               </a-collada-model>
+
+<a-plane position="0 1 0" rotation="90 0 0" scale="50 50" metalness="0.5" opacity="1" color="#202020"></a-plane>
+
+<a-entity  rotation="90 0 0" position="0 0 0" scale="50 50" geometry="primitive: plane" material="color: #14394c; side: double; opacity: .4">
+               <a-animation attribute="position"
+               from="0 1.1 0"
+               to="0 1.2 0"
+               dur="1000"
+               repeat="indefinite"
+               direction="alternate">
+               </a-animation>
+</a-entity>
+
+
+  </a-scene>
+  </body>
+  </html>
